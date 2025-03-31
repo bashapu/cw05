@@ -26,7 +26,18 @@ class AquariumScreen extends StatefulWidget {
   AquariumScreenState createState() => AquariumScreenState();
 }
 
-class AquariumScreenState extends State<AquariumScreen> {
+class AquariumScreenState extends State<AquariumScreen> with SingleTickerProviderStateMixin{
+late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
